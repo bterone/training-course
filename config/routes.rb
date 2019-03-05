@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   get 'index' => 'courses#index', as: 'about'
 
   get 'login' => 'users#login'
+
+  get 'new' => 'users#new', as: 'register'
+  
   resources :users
 end

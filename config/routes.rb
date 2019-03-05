@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   root 'courses#index', as: 'home'
 
   get 'index' => 'courses#index', as: 'about'
+
+  get 'login' => 'users#login'
+  resources :users
 end

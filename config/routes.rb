@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   get 'dashboard' => 'courses#dashboard'
 
   get 'inoverview' => 'instructors#inoverview'
+  get 'inassign' => 'instructors#inassign'
 
   get 'stgroup' => 'students#stgroup'
-
   get 'stoverview' => 'students#stoverview'
   resources :users
 end

@@ -9,5 +9,8 @@ Rails.application.routes.draw do
 
   get 'new' => 'users#new', as: 'register'
   
+  get 'dashboard' => 'courses#dashboard'
+
+  get 'inoverview' => 'instructors#inoverview'
   resources :users
 end

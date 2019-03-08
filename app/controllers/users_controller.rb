@@ -4,7 +4,8 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find(params[:user])
+        #Couldn't find User with 'citizenid'=
+        #@user = User.find(params[:user])
     end
 
     def create
@@ -13,6 +14,8 @@ class UsersController < ApplicationController
 
         case route_to params
         when :outsider
+            usertype = Usertype.find(1)
+            @user.usertype = usertype
             #render plain: params[:user].inspect
             if(@user.save)
                 redirect_to @user
@@ -29,7 +32,7 @@ class UsersController < ApplicationController
     end
 
     private def user_params
-        params.require(:user).permit(:fname, :lname, :citizenid, :username, :password, :email, :usertype)
+        params.require(:user).permit(:fname, :lname, :citizenid, :username, :password, :email)
     end
 
     private def route_to params

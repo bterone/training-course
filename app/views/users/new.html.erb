@@ -29,12 +29,43 @@
     </div>
 
     <div class="mb-3">
+        <label for="citizenid">Citizen ID</label>
+        <div class="input-group">
+        <%= f.text_field(:citizenid, {:class => 'form-control', :placeholder => '', :value => '', :required => ''}) %>
+        <div class="invalid-feedback" style="width: 100%;">
+            Your Citizen ID is required.
+        </div>
+        </div>
+    </div>
+
+    <div class="mb-3">
         <label for="username">Username</label>
         <div class="input-group">
         <!--<input type="text" class="form-control" id="username" placeholder="Username" required>-->
         <%= f.text_field(:username, {:class => 'form-control', :placeholder => '', :value => '', :required => ''}) %>
         <div class="invalid-feedback" style="width: 100%;">
             Your username is required.
+        </div>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="password">Password</label>
+        <div class="input-group">
+        <%= f.text_field(:password, {:class => 'form-control', :placeholder => '', :value => '', :required => '', :type => 'password'}) %>
+        <div class="invalid-feedback" style="width: 100%;">
+            Your password is required.
+        </div>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="passvalidate">Confirm Password</label>
+        <div class="input-group">
+        <!--<input type="text" class="form-control" id="username" placeholder="Username" required>-->
+        <%= f.text_field(:passvalidate, {:class => 'form-control', :placeholder => '', :value => '', :required => '', :type => 'password'}) %>
+        <div class="invalid-feedback" style="width: 100%;">
+            Your password doesn't match!.
         </div>
         </div>
     </div>
@@ -56,9 +87,7 @@
             <option onclick="option2()">Student</option>
             <option onclick="option3()">Instructor</option>
         </select>-->
-        <select class="custom-select d-block w-100" id="usertype" required>
-            <%= options_for_select([[ "Outsider", {onclick: 'option1()'}], ["Student", {onclick: 'option2()'}], ["Instructor", {onclick: 'option3()'}]]) %>
-        </select>
+            <%= f.select :usertype, options_for_select([[ "Outsider", {onclick: 'option1()'}], ["Student", {onclick: 'option2()'}], ["Instructor", {onclick: 'option3()'}]]), {}, {:class => 'custom-select d-block w-100'} %>
         <div class="invalid-feedback">
             Please select a valid user type.
         </div>

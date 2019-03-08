@@ -1,0 +1,9 @@
+<h1>Users</h1>
+<% @users.each do |user| %>
+    <hr class="featurette-divider">
+    <div class="well">
+        <h3><%= user.fname %> <%= user.lname %></h3>
+        <p><%= user.username %></p>
+        <%= link_to "Read more", user_path(user), :class => 'btn btn-secondary' %>
+    </div>
+<% end %>

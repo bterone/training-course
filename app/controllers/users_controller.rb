@@ -6,11 +6,11 @@ class UsersController < ApplicationController
     def show
         #Couldn't find User with 'citizenid'=
         #@user = User.find(params[:user])
+        @user = User.where(citizenid: "C012345678")
     end
 
     def create
         @user = User.new(user_params)
-        
 
         case route_to params
         when :outsider
@@ -23,12 +23,22 @@ class UsersController < ApplicationController
                 render plain: params[:user].inspect
             end
         when :student
-            #render plain: params[:user].inspect
+            usertype = Usertype.find(2)
+            @user.usertype = usertype
+            if(@user.save)
+                redirect_to @user
+            else
+                render plain: params[:user].inspect
+            end
         when :instructor
-            #render 'login'
+            usertype = Usertype.find(3)
+            @user.usertype = usertype
+            if(@user.save)
+                redirect_to @user
+            else
+                render plain: params[:user].inspect
+            end
         end
-
-        @user.save
     end
 
     private def user_params

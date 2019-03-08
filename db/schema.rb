@@ -12,29 +12,35 @@
 
 ActiveRecord::Schema.define(version: 20190308084259) do
 
-  create_table "instructors", primary_key: "instructorid", force: :cascade do |t|
+  create_table "instructors", force: :cascade do |t|
+    t.string "instructorid", null: false
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["instructorid"], name: "index_instructors_on_instructorid", unique: true
     t.index ["user_id"], name: "index_instructors_on_user_id"
   end
 
-  create_table "students", primary_key: "studentid", force: :cascade do |t|
+  create_table "students", force: :cascade do |t|
+    t.string "studentid", null: false
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["studentid"], name: "index_students_on_studentid", unique: true
     t.index ["user_id"], name: "index_students_on_user_id"
   end
 
-  create_table "users", primary_key: "citizenid", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "fname"
     t.string "lname"
+    t.string "citizenid", null: false
     t.string "username"
     t.string "password"
     t.string "email"
     t.integer "usertype_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["citizenid"], name: "index_users_on_citizenid", unique: true
     t.index ["usertype_id"], name: "index_users_on_usertype_id"
   end
 

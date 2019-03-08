@@ -1,3 +1,3 @@
-INSERT INTO user_types VALUES (1, 'Outsider', '2008-11-11 13:23:44', '2008-11-11 13:23:44');
-INSERT INTO user_types VALUES (2, 'Student', '2008-11-11 13:23:44', '2008-11-11 13:23:44');
-INSERT INTO user_types VALUES (3, 'Instructor', '2008-11-11 13:23:44', '2008-11-11 13:23:44');
+INSERT INTO usertypes VALUES (1, 'Outsider', '2008-11-11 13:23:44', '2008-11-11 13:23:44');
+INSERT INTO usertypes VALUES (2, 'Student', '2008-11-11 13:23:44', '2008-11-11 13:23:44');
+INSERT INTO usertypes VALUES (3, 'Instructor', '2008-11-11 13:23:44', '2008-11-11 13:23:44');

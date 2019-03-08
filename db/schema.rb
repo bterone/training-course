@@ -26,12 +26,6 @@ ActiveRecord::Schema.define(version: 20190308084259) do
     t.index ["user_id"], name: "index_students_on_user_id"
   end
 
-  create_table "user_types", force: :cascade do |t|
-    t.string "usertype"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", primary_key: "citizenid", force: :cascade do |t|
     t.string "fname"
     t.string "lname"
@@ -42,6 +36,12 @@ ActiveRecord::Schema.define(version: 20190308084259) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["usertype_id"], name: "index_users_on_usertype_id"
+  end
+
+  create_table "usertypes", force: :cascade do |t|
+    t.string "usertype"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

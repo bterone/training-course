@@ -3,13 +3,22 @@ class UsersController < ApplicationController
 
     end
 
+    def show
+        @user = User.find(params[:user])
+    end
+
     def create
         @user = User.new(user_params)
         
 
         case route_to params
         when :outsider
-            render plain: params[:user].inspect
+            #render plain: params[:user].inspect
+            if(@user.save)
+                redirect_to @user
+            else
+                render plain: params[:user].inspect
+            end
         when :student
             #render plain: params[:user].inspect
         when :instructor

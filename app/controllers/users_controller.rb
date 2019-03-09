@@ -1,12 +1,17 @@
 class UsersController < ApplicationController
-    def new
 
+    def index
+        @users = User.all
+    end
+
+    def new
+        @user = User.new
     end
 
     def show
         #Couldn't find User with 'citizenid'=
         #@user = User.find(params[:user])
-        @user = User.where(citizenid: "C012345678")
+        @user = User.find(params[:id])
     end
 
     def create
@@ -20,29 +25,41 @@ class UsersController < ApplicationController
             if(@user.save)
                 redirect_to @user
             else
-                render plain: params[:user].inspect
+                #render plain: params[:user].inspect
+                render 'new'
             end
+
         when :student
             usertype = Usertype.find(2)
             @user.usertype = usertype
             if(@user.save)
+                @user.update(:student_attributes => student_params)
                 redirect_to @user
             else
-                render plain: params[:user].inspect
+                render 'new'
             end
         when :instructor
             usertype = Usertype.find(3)
             @user.usertype = usertype
             if(@user.save)
+                @user.update(:instructor_attributes => instructor_params)
                 redirect_to @user
             else
-                render plain: params[:user].inspect
+                render 'new'
             end
         end
     end
 
     private def user_params
         params.require(:user).permit(:fname, :lname, :citizenid, :username, :password, :email)
+    end
+
+    private def student_params
+        params.require(:user).permit(:studentid)
+    end
+
+    private def instructor_params
+        params.require(:user).permit(:instructorid)
     end
 
     private def route_to params

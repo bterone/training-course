@@ -9,6 +9,11 @@
     <h4 class="mb-3">Register a new account</h4>
     <!--<form class="needs-validation" novalidate>-->
     <%= form_for :user, :html => {:class => 'needs-validation', :novalidate => ''}, url: users_path do |f| %>
+    <% if @user.errors.any? %>
+            <% @user.errors.full_messages.each do |msg| %>
+                <div class="alert alert-danger"><%= msg %></div>
+            <% end %>
+    <% end %>
     <div class="row">
         <div class="col-md-6 mb-3">
         <label for="firstName">First name</label>
@@ -63,7 +68,7 @@
         <label for="passvalidate">Confirm Password</label>
         <div class="input-group">
         <!--<input type="text" class="form-control" id="username" placeholder="Username" required>-->
-        <%= f.text_field(:passvalidate, {:class => 'form-control', :placeholder => '', :value => '', :required => '', :type => 'password'}) %>
+        <%= f.text_field(:password_confirmation, {:class => 'form-control', :placeholder => '', :value => '', :required => '', :type => 'password'}) %>
         <div class="invalid-feedback" style="width: 100%;">
             Your password doesn't match!.
         </div>
@@ -95,8 +100,10 @@
         
         <div class="col-md-8 mb-3" id="studentiddiv" style="display: none">
         <label for="studentid">Student ID</label>
+        <%= f.fields_for :student, @user.student do |g| %>
         <!--<input type="text" class="form-control" id="studentid" placeholder="" required>-->
-        <%= f.text_field(:studentid, {:class => 'form-control', :placeholder => '', :value => '', :id => 'studentid'}) %>
+        <%= g.text_field(:studentid, {:class => 'form-control', :placeholder => '', :value => '', :id => 'studentid'}) %>
+        <% end %>
         <div class="invalid-feedback">
             Student ID required.
         </div>

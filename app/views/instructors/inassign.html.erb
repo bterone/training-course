@@ -1,33 +1,49 @@
+<style>
+    .sortable {
+        border: 1px solid grey;
+        min-height: 20px;
+    }
+</style>
 <div class="row featurette">
     <div class="col-md-9 p-4 d-flex flex-column position-static">
+    <!-- Adding for each group -->
+    <% @course.groups.each do |group| %>
         <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <div class="row">
+        <div class="col-md-7">
+            <div class="card-body">
+                <h5 class="card-title"><%= group.name %></h5>
+                <!--<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="card-body">
+            <ul class="list-group">
+                <div class="sortable">
+                <li class="list-group-item">Paul</li>
+                <li class="list-group-item">Stacy</li>
+                </div>
+            </ul>
+            </div>
+        </div>
         </div>
         </div>
         <hr class="featurette-divider">
 
-        <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-        </div>
-        <hr class="featurette-divider">
-
+    <% end %>
     </div>
     
     <div class="col-md-3 p-4 d-flex flex-column position-static">
         <h4 class="featurette-heading">List of Unassigned Students</h2>
         <ul class="list-group">
+            <div class="sortable">
             <li class="list-group-item">Paul</li>
             <li class="list-group-item">Stacy</li>
             <li class="list-group-item">Jack</li>
             <li class="list-group-item">Felix</li>
             <li class="list-group-item">Susan</li>
+            </div>
         </ul>
     </div>
 </div>

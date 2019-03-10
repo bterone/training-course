@@ -12,4 +12,7 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require jquery
+//= require jquery-ui/widget
+//= require jquery-ui/sortable
 //= require_tree .

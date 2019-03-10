@@ -17,4 +17,8 @@ Rails.application.routes.draw do
   get 'stgroup' => 'students#stgroup'
   get 'stoverview' => 'students#stoverview'
   resources :users
+
+  resources :courses do
+    resources :groups
+  end
 end

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  groupname: MyString
+  submission: MyText
+  review: 
+  grade: 
+  course: one
+
+two:
+  groupname: MyString
+  submission: MyText
+  review: 
+  grade: 
+  course: two

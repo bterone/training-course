@@ -59,7 +59,7 @@ class UsersController < ApplicationController
     end
 
     private def instructor_params
-        params.require(:user).permit(:instructorid)
+        params.require(:user).permit(:instructorid, :departmentname)
     end
 
     private def route_to params

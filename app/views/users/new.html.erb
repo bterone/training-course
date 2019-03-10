@@ -76,11 +76,11 @@
     </div>
 
     <div class="mb-3">
-        <label for="email">Email <span class="text-muted">(Optional)</span></label>
+        <label for="email">Email</label>
         <!--<input type="email" class="form-control" id="email" placeholder="you@example.com">-->
         <%= f.text_field(:email, {:class => 'form-control', :placeholder => 'you@example.com', :id => 'email'}) %>
         <div class="invalid-feedback">
-        Please enter a valid email address for shipping updates.
+        Please enter a valid email address.
         </div>
     </div>
 
@@ -118,6 +118,15 @@
         </div>
         </div>
     </div>
+
+    <div class="mb-3" id="instructoriddiv2" style="display: none">
+        <label for="email">Department Name</label>
+        <%= f.text_field(:departmentname, {:class => 'form-control', :placeholder => '', :value => '', :id => 'departmentname'}) %>
+        <div class="invalid-feedback">
+            Department Name required.
+        </div>
+    </div>
+
     <hr class="mb-4">
     <!--<button class="btn btn-primary btn-lg btn-block" type="submit">Register</button>-->
     <%= f.submit({:class => 'btn btn-primary btn-lg btn-block', :id => 'submit-button', :value => 'Register', :name => 'route_to[outsider]'}) %>
@@ -151,10 +160,12 @@
 function option1() {
     var x = document.getElementById("studentiddiv");
     var y = document.getElementById("instructoriddiv");
+    var w = document.getElementById("instructoriddiv2");
     var z = document.getElementById("submit-button")
     
     x.style.display = "none";
     y.style.display = "none";
+    w.style.display = "none";
 
     var m = document.getElementById("studentid");
     m.required = false;
@@ -162,6 +173,9 @@ function option1() {
     var n = document.getElementById("instructorid");
     n.required = false;
     n.value = "";
+    var o = document.getElementById("departmentname");
+    o.required = false;
+    o.value = "";
 
     z.name = "route_to[outsider]";
 }
@@ -179,6 +193,9 @@ function option2() {
     var n = document.getElementById("instructorid");
     n.required = false;
     n.value = "";
+    var o = document.getElementById("departmentname");
+    o.required = false;
+    o.value = "";
 
     var m = document.getElementById("studentid");
     m.required = true;
@@ -189,12 +206,15 @@ function option2() {
 
 function option3() {
     var x = document.getElementById("instructoriddiv");
+    var w = document.getElementById("instructoriddiv2");
 
     option1();
     if (x.style.display === "none") {
         x.style.display = "block";
+        w.style.display = "block";
     } else {
         x.style.display = "none";
+        w.style.display = "none";
     }
 
     var m = document.getElementById("studentid");
@@ -203,6 +223,8 @@ function option3() {
 
     var n = document.getElementById("instructorid");
     n.required = true;
+    var o = document.getElementById("departmentname");
+    o.required = true;
 
     var z = document.getElementById("submit-button")
     z.name = "route_to[instructor]";

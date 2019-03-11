@@ -10,15 +10,19 @@ Rails.application.routes.draw do
   get 'new' => 'users#new', as: 'register'
   
   get 'dashboard' => 'courses#dashboard'
+  get 'indashboard' => 'instructors#indashboard'
 
   get 'inoverview' => 'instructors#inoverview'
   get 'inassign' => 'instructors#inassign'
+  get 'courses/:id' => 'instructors#inassign'
 
   get 'stgroup' => 'students#stgroup'
   get 'stoverview' => 'students#stoverview'
   resources :users
 
   resources :courses do
-    resources :groups
+    resources :groups do
+      resources :users
+    end
   end
 end

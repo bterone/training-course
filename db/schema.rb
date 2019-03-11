@@ -10,13 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190310100351) do
+ActiveRecord::Schema.define(version: 20190311090613) do
 
   create_table "courses", force: :cascade do |t|
     t.string "coursename"
     t.text "coursedesc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "group_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "group_id"
   end
 
   create_table "groups", force: :cascade do |t|

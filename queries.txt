@@ -10,10 +10,23 @@ INSERT INTO groups VALUES (2,'Group 2','NONE','NONE','100','1','2008-11-11 13:23
 INSERT INTO groups VALUES (3,'Group 3','NONE','NONE','100','2','2008-11-11 13:23:44','2008-11-11 13:23:44');
 INSERT INTO groups VALUES (4,'Group 4','NONE','NONE','100','2','2008-11-11 13:23:44','2008-11-11 13:23:44');
 
-INSERT INTO `users` VALUES (1,'Horace ','Knightly','C123456789','horace','qwer','horace@email.com',2,'2019-03-10 09:29:13.389076','2019-03-10 09:29:13.389076');
-INSERT INTO `users` VALUES (2,'Peter ','Knightly','C123456788','horace','qwer','horace@email.com',2,'2019-03-10 09:29:13.389076','2019-03-10 09:29:13.389076');
-INSERT INTO `users` VALUES (3,'Daft ','Knightly','C123456787','horace','qwer','horace@email.com',2,'2019-03-10 09:29:13.389076','2019-03-10 09:29:13.389076');
+INSERT INTO `users` VALUES (1,'Horace','Knightly','C123456789','horace','qwer','horace@email.com',2,'2019-03-10 09:29:13.389076','2019-03-10 09:29:13.389076');
+INSERT INTO `users` VALUES (2,'Peter','Knightly','C123456788','peter','qwer','horace@email.com',2,'2019-03-10 09:29:13.389076','2019-03-10 09:29:13.389076');
+INSERT INTO `users` VALUES (3,'Daft','Knightly','C123456787','daft','qwer','horace@email.com',2,'2019-03-10 09:29:13.389076','2019-03-10 09:29:13.389076');
+INSERT INTO `users` VALUES (4,'John','Knightly','C123456786','john','qwer','horace@email.com',2,'2019-03-10 09:29:13.389076','2019-03-10 09:29:13.389076');
+INSERT INTO `users` VALUES (5,'David','Knightly','C123456785','david','qwer','horace@email.com',2,'2019-03-10 09:29:13.389076','2019-03-10 09:29:13.389076');
+INSERT INTO `users` VALUES (6,'Samantha','Knightly','C123456784','samantha','qwer','horace@email.com',2,'2019-03-10 09:29:13.389076','2019-03-10 09:29:13.389076');
+INSERT INTO `users` VALUES (7,'Edgar','Knightly','C123456783','edgar','qwer','horace@email.com',2,'2019-03-10 09:29:13.389076','2019-03-10 09:29:13.389076');
+INSERT INTO `users` VALUES (8,'Susan','Knightly','C123456782','susan','qwer','horace@email.com',2,'2019-03-10 09:29:13.389076','2019-03-10 09:29:13.389076');
+INSERT INTO `users` VALUES (9,'Quinn','Knightly','C123456781','quinn','qwer','horace@email.com',2,'2019-03-10 09:29:13.389076','2019-03-10 09:29:13.389076');
 
 INSERT INTO students VALUES (1,'S123456789',1,'2008-11-11 13:23:44','2008-11-11 13:23:44');
 INSERT INTO students VALUES (2,'S123456790',2,'2008-11-11 13:23:44','2008-11-11 13:23:44');
 INSERT INTO students VALUES (3,'S123456791',3,'2008-11-11 13:23:44','2008-11-11 13:23:44');
+
+INSERT INTO group_users('user_id','group_id') VALUES (1,1);
+INSERT INTO group_users('user_id','group_id') VALUES (2,1);
+INSERT INTO group_users('user_id','group_id') VALUES (3,1);
+INSERT INTO group_users('user_id','group_id') VALUES (4,2);
+INSERT INTO group_users('user_id','group_id') VALUES (5,2);
+INSERT INTO group_users('user_id','group_id') VALUES (6,2);

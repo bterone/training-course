@@ -1,2 +1,3 @@
-
-    <li class="list-group-item"><%= @users.last.groupname %></li>
+<% @userselected.each do |user| %>
+    <li class="list-group-item"><%= user.fname %> <%= user.lname %> <%= user.groupname %></li>
+<% end %>

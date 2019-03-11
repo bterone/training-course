@@ -17,6 +17,6 @@ class InstructorsController < ApplicationController
         @users = User.all
         @userselected = User.select('users.fname','users.lname','groups.groupname').
         left_outer_joins(:group_users).
-        left_outer_joins(:groups).all
+        left_outer_joins(:groups).where(groups: { course_id: params[:id]})
     end
 end

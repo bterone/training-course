@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails', '~> 4.3.1'
 gem 'jquery-ui-rails', '~> 5.0'
 gem 'acts_as_list'
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

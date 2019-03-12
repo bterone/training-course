@@ -100,10 +100,8 @@
         
         <div class="col-md-8 mb-3" id="studentiddiv" style="display: none">
         <label for="studentid">Student ID</label>
-        <%= f.fields_for :student, @user.student do |g| %>
         <!--<input type="text" class="form-control" id="studentid" placeholder="" required>-->
-        <%= g.text_field(:studentid, {:class => 'form-control', :placeholder => '', :value => '', :id => 'studentid'}) %>
-        <% end %>
+        <%= f.text_field(:studentid, {:class => 'form-control', :placeholder => '', :value => '', :id => 'studentid'}) %>
         <div class="invalid-feedback">
             Student ID required.
         </div>

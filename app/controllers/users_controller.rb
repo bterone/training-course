@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < Devise::RegistrationsController
 
     def index
         @users = User.all
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
             @user.usertype = usertype
             #render plain: params[:user].inspect
             if(@user.save)
-                redirect_to @user
+                render 'confirmation'
             else
                 #render plain: params[:user].inspect
                 render 'new'
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
             @user.usertype = usertype
             if(@user.save)
                 @user.update(:student_attributes => student_params)
-                redirect_to @user
+                render 'confirmation'
             else
                 render 'new'
             end
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
             @user.usertype = usertype
             if(@user.save)
                 @user.update(:instructor_attributes => instructor_params)
-                redirect_to @user
+                render 'confirmation'
             else
                 render 'new'
             end

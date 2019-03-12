@@ -63,13 +63,16 @@ ActiveRecord::Schema.define(version: 20190312024313) do
     t.string "fname"
     t.string "lname"
     t.string "citizenid", null: false
-    t.string "username"
-    t.string "password"
     t.string "email"
     t.integer "usertype_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "username", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.index ["citizenid"], name: "index_users_on_citizenid", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
     t.index ["usertype_id"], name: "index_users_on_usertype_id"
   end
 

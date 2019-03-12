@@ -23,7 +23,11 @@
                 <div class="sortable">
                 <!--<li class="list-group-item">Paul</li>
                 <li class="list-group-item">Stacy</li>-->
-                <%= render 'groups/grouplist' %>
+                    <% @userselected.each do |user| %>
+                        <% if user.groupname == group.groupname %>
+                            <li class="list-group-item"><%= user.fname %> <%= user.lname %> <%= user.groupname %></li>
+                        <% end %>
+                    <% end %>
                 </div>
             </ul>
             </div>
@@ -39,11 +43,16 @@
         <h4 class="featurette-heading">List of Unassigned Students</h2>
         <ul class="list-group">
             <div class="sortable">
-            <li class="list-group-item">Paul</li>
+            <% @userselected.each do |user| %>
+                <% if user.groupname == nil %>
+                    <li class="list-group-item"><%= user.fname %> <%= user.lname %></li>
+                <% end %>
+            <% end %>
+            <!--<li class="list-group-item">Paul</li>
             <li class="list-group-item">Stacy</li>
             <li class="list-group-item">Jack</li>
             <li class="list-group-item">Felix</li>
-            <li class="list-group-item">Susan</li>
+            <li class="list-group-item">Susan</li>-->
             </div>
         </ul>
     </div>

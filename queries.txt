@@ -19,6 +19,9 @@ INSERT INTO `users` VALUES (6,'Samantha','Knightly','C123456784','samantha','qwe
 INSERT INTO `users` VALUES (7,'Edgar','Knightly','C123456783','edgar','qwer','horace@email.com',2,'2019-03-10 09:29:13.389076','2019-03-10 09:29:13.389076');
 INSERT INTO `users` VALUES (8,'Susan','Knightly','C123456782','susan','qwer','horace@email.com',2,'2019-03-10 09:29:13.389076','2019-03-10 09:29:13.389076');
 INSERT INTO `users` VALUES (9,'Quinn','Knightly','C123456781','quinn','qwer','horace@email.com',2,'2019-03-10 09:29:13.389076','2019-03-10 09:29:13.389076');
+INSERT INTO `users` VALUES (10,'Thomas','Knightly','C123456780','thomas','qwer','horace@email.com',2,'2019-03-10 09:29:13.389076','2019-03-10 09:29:13.389076');
+INSERT INTO `users` VALUES (11,'Harvard','Knightly','C123456779','harvard','qwer','horace@email.com',2,'2019-03-10 09:29:13.389076','2019-03-10 09:29:13.389076');
+INSERT INTO `users` VALUES (12,'Sylvester','Knightly','C123456778','sylvester','qwer','horace@email.com',2,'2019-03-10 09:29:13.389076','2019-03-10 09:29:13.389076');
 
 INSERT INTO students VALUES (1,'S123456789',1,'2008-11-11 13:23:44','2008-11-11 13:23:44');
 INSERT INTO students VALUES (2,'S123456790',2,'2008-11-11 13:23:44','2008-11-11 13:23:44');
@@ -30,3 +33,19 @@ INSERT INTO group_users('user_id','group_id') VALUES (3,1);
 INSERT INTO group_users('user_id','group_id') VALUES (4,2);
 INSERT INTO group_users('user_id','group_id') VALUES (5,2);
 INSERT INTO group_users('user_id','group_id') VALUES (6,2);
+INSERT INTO group_users('user_id','group_id') VALUES (10,3);
+INSERT INTO group_users('user_id','group_id') VALUES (11,3);
+INSERT INTO group_users('user_id','group_id') VALUES (12,3);
+
+INSERT INTO course_users('user_id','course_id') VALUES (1,1);
+INSERT INTO course_users('user_id','course_id') VALUES (2,1);
+INSERT INTO course_users('user_id','course_id') VALUES (3,1);
+INSERT INTO course_users('user_id','course_id') VALUES (4,1);
+INSERT INTO course_users('user_id','course_id') VALUES (5,1);
+INSERT INTO course_users('user_id','course_id') VALUES (6,1);
+INSERT INTO course_users('user_id','course_id') VALUES (7,1);
+INSERT INTO course_users('user_id','course_id') VALUES (8,1);
+INSERT INTO course_users('user_id','course_id') VALUES (9,1);
+INSERT INTO course_users('user_id','course_id') VALUES (10,2);
+INSERT INTO course_users('user_id','course_id') VALUES (11,2);
+INSERT INTO course_users('user_id','course_id') VALUES (12,2);

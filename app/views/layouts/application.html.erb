@@ -17,7 +17,7 @@
           <%= link_to "About", about_path, { :class => "p-2 text-dark" } %>
           <!-- <a class="p-2 text-dark" href="#">Pricing</a> -->
           <% if user_signed_in? %>
-          <a class="p-2 text-dark" href="#"><%= current_user.username %></a>
+          <a class="p-2 text-dark" href="#"><%= current_user.fname %> <%= current_user.lname %></a>
           <%= link_to "Log out", destroy_user_session_path, { :class => "btn btn-outline-primary", method: :delete } %>
           <% else %>
           <%= link_to "Login", new_user_session_path, { :class => "btn btn-outline-primary" } %>

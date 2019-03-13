@@ -9,12 +9,13 @@ Rails.application.routes.draw do
 
   get 'dashboard' => 'courses#dashboard'
   get 'indashboard' => 'instructors#indashboard', :as => :indashboard
+  get 'stdashboard' => 'students#stdashboard', :as => :stdashboard
 
   get 'inoverview' => 'instructors#inoverview'
   get 'courses/:id' => 'instructors#inassign'
 
   get 'stgroup' => 'students#stgroup'
-  get 'stoverview' => 'students#stoverview'
+  get 'stoverview/:id' => 'students#stoverview', :as => :stoverview
   resources :users
 
   resources :courses do

@@ -14,18 +14,11 @@ class InstructorsController < ApplicationController
         #LEFT OUTER JOIN groups
         #    ON group_users.group_id = groups.id"
         #@users = ActiveRecord::Base.connection.exec_query(sql)
-        
-        #@users = User.all
-        #@userselected = User.select('users.fname','users.lname','groups.groupname').
-        #left_outer_joins(:group_users).
-        #left_outer_joins(:groups).where(groups: { course_id: params[:id]})
 
         @users = User.all.
-        left_outer_joins(:course_users).
         left_outer_joins(:courses).where(course_users: { course_id: params[:id]})
 
         @userselected = @users.select('users.fname','users.lname','groups.groupname').
-        left_outer_joins(:group_users).
         left_outer_joins(:groups).all
     end
 end

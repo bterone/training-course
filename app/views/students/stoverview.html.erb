@@ -10,6 +10,11 @@
         Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
 
         <hr class="featurette-divider">
-        <button type="button" class="btn btn-primary">Go to Class</button>
+        <!--<button type="button" class="btn btn-primary">Go to Class</button>-->
+        <% if groupfind(@course).first == nil %>
+            <a class="btn btn-danger" href="#">No group assigned</a>
+        <% else %>
+            <%= link_to "Go to Class", stgroup_path(@course), :class => 'btn btn-info' %>
+        <% end %>
     </aside>
 </div>

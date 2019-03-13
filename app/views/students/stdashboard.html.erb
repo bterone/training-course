@@ -11,7 +11,7 @@
             <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
                 <%= link_to "Course Overview", stoverview_path(course), :class => 'btn btn-sm btn-outline-secondary' %>
-                <% if mymethod(course).first == nil %>
+                <% if groupfind(course).first == nil %>
                     <a class="btn btn-sm btn-danger" href="#">No group assigned</a>
                 <% else %>
                     <%= link_to "Go to Class", stgroup_path(course), :class => 'btn btn-sm btn-info' %>

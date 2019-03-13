@@ -14,10 +14,10 @@ class StudentsController < ApplicationController
         @course = Course.find(params[:id])
     end
 
-    def mymethod(course)
+    def groupfind(course)
         @group = course.groups
         @group.all.
         left_outer_joins(:users).where(users: { id: current_user.id })
     end
-    helper_method :mymethod
+    helper_method :groupfind
 end

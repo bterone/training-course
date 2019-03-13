@@ -25,7 +25,7 @@
                 <li class="list-group-item">Stacy</li>-->
                     <% @userselected.each do |user| %>
                         <% if user.groupname == group.groupname %>
-                            <li class="list-group-item"><%= user.fname %> <%= user.lname %> <%= user.groupname %></li>
+                            <li class="list-group-item"><%= user.fname %> <%= user.lname %></li>
                         <% end %>
                     <% end %>
                 </div>

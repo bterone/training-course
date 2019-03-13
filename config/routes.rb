@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'inoverview' => 'instructors#inoverview'
   get 'courses/:id' => 'instructors#inassign'
 
-  get 'stgroup' => 'students#stgroup'
+  get 'stgroup' => 'students#stgroup', :as => :stgroup
   get 'stoverview/:id' => 'students#stoverview', :as => :stoverview
   resources :users
 

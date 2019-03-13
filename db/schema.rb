@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20190312024313) do
     t.string "lname"
     t.string "citizenid", null: false
     t.string "email"
-    t.integer "usertype_id"
+    t.integer "usertype"
     t.string "username", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -73,13 +73,6 @@ ActiveRecord::Schema.define(version: 20190312024313) do
     t.index ["citizenid"], name: "index_users_on_citizenid", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
-    t.index ["usertype_id"], name: "index_users_on_usertype_id"
-  end
-
-  create_table "usertypes", force: :cascade do |t|
-    t.string "usertype"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end

@@ -3,7 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  belongs_to :usertype
   validates :citizenid, uniqueness: true
   validates :password, confirmation: true
   has_one :student
@@ -16,4 +15,6 @@ class User < ApplicationRecord
   has_many :courses, :through => :course_users
 
   accepts_nested_attributes_for :student, :instructor
+
+  enum usertype:[:outsider, :student, :instructor]
 end

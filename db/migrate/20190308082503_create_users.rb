@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :lname
       t.string :citizenid, :null => false
       t.string :email
-      t.references :usertype, foreign_key: true
+      t.integer :usertype
 
       ## Database authenticatable
       t.string :username,           null: false, default: ""

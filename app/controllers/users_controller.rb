@@ -19,8 +19,7 @@ class UsersController < Devise::RegistrationsController
 
         case route_to params
         when :outsider
-            usertype = Usertype.find(1)
-            @user.usertype = usertype
+            @user.usertype = :outsider
             #render plain: params[:user].inspect
             if(@user.save)
                 render 'confirmation'
@@ -30,8 +29,7 @@ class UsersController < Devise::RegistrationsController
             end
 
         when :student
-            usertype = Usertype.find(2)
-            @user.usertype = usertype
+            @user.usertype = :student
             if(@user.save)
                 @user.update(:student_attributes => student_params)
                 render 'confirmation'
@@ -39,8 +37,7 @@ class UsersController < Devise::RegistrationsController
                 render 'new'
             end
         when :instructor
-            usertype = Usertype.find(3)
-            @user.usertype = usertype
+            @user.usertype = :instructor
             if(@user.save)
                 @user.update(:instructor_attributes => instructor_params)
                 render 'confirmation'

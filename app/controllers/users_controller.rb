@@ -1,7 +1,11 @@
-class UsersController < Devise::RegistrationsController
+class UsersController < ApplicationController
 
     def index
-        @users = User.all
+        #@users = User.all
+        @users = User.select('users.id','users.fname','users.lname',
+        'users.citizenid','users.email','students.studentid','groups.groupname').
+        joins(:student).
+        left_outer_joins(:groups)
     end
 
     def new
@@ -44,6 +48,24 @@ class UsersController < Devise::RegistrationsController
             else
                 render 'new'
             end
+        end
+    end
+
+    def edit
+        @user = User.find(params[:id])
+        #@user = User.select('users.id','users.fname','users.lname',
+        #'users.citizenid','users.email','students.studentid','groups.groupname').
+        #joins(:student).
+        #left_outer_joins(:groups).where(users: { id: params[:id] })
+    end
+
+    def update
+        @user = User.find(params[:id])
+
+        if(@user.update(user_params))
+            redirect_to @user
+        else
+            render 'edit'
         end
     end
 

@@ -16,6 +16,14 @@ Rails.application.routes.draw do
 
   get 'stgroup' => 'students#stgroup', :as => :stgroup
   get 'stoverview/:id' => 'students#stoverview', :as => :stoverview
+  get 'courses/follow/:id' => 'courses#follow', :as => :follow_course
+
+  #get 'filter' => 'filter#show', :as => :filter
+  post 'filter' => 'filter#show', :as => :filter
+  devise_scope :user do
+    match '/users', to: 'users#index', via: 'get'
+    match '/users/:id', to: 'users#show', via: 'get'
+  end
   resources :users
 
   resources :courses do

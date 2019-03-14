@@ -1,0 +1,39 @@
+<h3>List of all students</h3>
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>First name</th>
+            <th>Last Name</th>
+            <th>Citizen ID</th>
+            <th>Email</th>
+            <th>Group Name</th>
+        </tr>
+        <tr>
+         <%= form_for :user, url: filter_path, method: "post" do |f| %>
+            <th><%= f.text_field(:studentid, {:class => 'form-control', :placeholder => '', :value => '' }) %></th>
+            <th><%= f.text_field(:fname, {:class => 'form-control', :placeholder => '', :value => '' }) %></th>
+            <th><%= f.text_field(:lname, {:class => 'form-control', :placeholder => '', :value => '' }) %></th>
+            <th><%= f.text_field(:citizenid, {:class => 'form-control', :placeholder => '', :value => '' }) %></th>
+            <th><%= f.text_field(:email, {:class => 'form-control', :placeholder => '', :value => '' }) %></th>
+            <th><%= f.text_field(:groupname, {:class => 'form-control', :placeholder => '', :value => '' }) %></th>
+            <th><%= f.submit "Filter", :class => 'btn btn-primary' %>
+        <% end %>
+        </tr>
+        </thead>
+        <tbody>
+    <% @users.each do |user| %>
+    <!-- FILTER SHOW -->
+        <tr>
+            <td><%= user.studentid %></td>
+            <td><%= user.fname %></td>
+            <td><%= user.lname %></td>
+            <td><%= user.citizenid %></td>
+            <td><%= user.email %></td>
+            <td><%= user.groupname %></td>
+            <td><%= link_to "Edit", user_path(user.id), :class => 'btn btn-secondary' %></td>
+        </tr>
+    <% end %>
+    </table>
+</div>

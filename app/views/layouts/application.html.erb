@@ -20,8 +20,9 @@
 
             <% if current_user.usertype != "instructor" %>
               <%= link_to "Dashboard", stdashboard_path, { :class => "p-2 text-dark" } %>
+            <% else %>
+              <%= link_to "Student List", users_path, { :class => "p-2 text-dark" } %>
             <% end %>
-
           <a class="p-2 text-dark" href="#"><%= current_user.fname %> <%= current_user.lname %></a>
           <%= link_to "Log out", destroy_user_session_path, { :class => "btn btn-outline-primary", method: :delete } %>
           

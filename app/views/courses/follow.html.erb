@@ -1,0 +1,7 @@
+<% if @followcourse.errors.any? %>
+    <% @followcourse.errors.full_messages.each do |msg| %>
+        <div class="alert alert-danger"><%= msg %></div>
+    <% end %>
+<% else %>
+<h1>You are now following this course!</h1>
+<% end %>

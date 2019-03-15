@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get 'stoverview/:id' => 'students#stoverview', :as => :stoverview
   get 'courses/follow/:id' => 'courses#follow', :as => :follow_course
 
+  get 'groups/spawn/:id' => 'groups#spawn', :as => :spawn_group
+
   get 'groups/submission/:id' => 'groups#submission', :as => :submission
   #get 'filter' => 'filter#show', :as => :filter
   post 'filter' => 'filter#show', :as => :filter

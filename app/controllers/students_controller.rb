@@ -21,21 +21,6 @@ class StudentsController < ApplicationController
         @wholegroup = User.all.left_outer_joins(:groups).where(groups: { id: @group })
     end
 
-    def savegroupname(groupname)
-        @group = Group.all.
-        left_outer_joins(:users).where(users: { id: current_user.id}, course_id: params[:id])
-        @wholegroup = User.all.left_outer_joins(:groups).where(groups: { id: @group })
-        @wholegroup.groupname << groupname
-        if(@wholegroup.save)
-            flash[:alert] = "Group name has been saved!"
-            redirect_to(request.referrer || root_path)
-        else
-            flash[:alert] = "Sorry! Something went wrong when saving your name."
-            redirect_to(request.referrer || root_path)
-        end
-    end
-    helper_method :savegroupname
-
     def groupfind(course)
         @group = course.groups
         @group.all.

@@ -33,6 +33,10 @@ class InstructorsController < ApplicationController
         @userselected = @users.select('users.fname','users.lname','groups.groupname').
         left_outer_joins(:groups).where(usertype: 1)
 
+        #SELECT COUNT(users.fname), groups.groupname FROM users 
+        #LEFT OUTER JOIN "group_users" ON "group_users"."user_id" = "users"."id" 
+        #LEFT OUTER JOIN "groups" ON "groups"."id" = "group_users"."group_id" WHERE "users"."usertype" = 1 GROUP BY groups.groupname 
+        
         @groupcount = @userselected.count('groups.groupname')
         authorize Course
     end

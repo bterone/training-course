@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   get 'groups/spawn/:id' => 'groups#spawn', :as => :spawn_group
 
   get 'groups/submission/:id' => 'groups#submission', :as => :submission
+  get 'groups/grade/:id' => 'groups#grade', :as => :grade
+  get 'groups/project/:id' => 'groups#project', :as => :project
+  get 'groups/submitted/:id' => 'groups#submitted', :as => :submitted
   #get 'filter' => 'filter#show', :as => :filter
   post 'filter' => 'filter#show', :as => :filter
   devise_scope :user do

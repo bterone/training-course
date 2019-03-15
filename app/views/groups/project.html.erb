@@ -1,10 +1,10 @@
-<h5>Submission</h5>
+<h5>Give Project</h5>
 <%= form_for :group, url: group_path(@group), method: :patch do |f| %>
     <div class="col-md-6">
-        <%= f.text_area(:submission, {:class => 'form-control'}) %>
+        <%= f.text_area(:review, {:class => 'form-control'}) %>
     </div>
     <hr class="featurette-divider">
     <div class="col-md-3">
-        <%= f.submit({:class => 'btn btn-primary', :value => 'Submit Assignment'}) %>
+        <%= f.submit({:class => 'btn btn-primary', :value => 'Save Project'}) %>
     </div>
 <% end %>

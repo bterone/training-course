@@ -1,6 +1,7 @@
 class InstructorsController < ApplicationController
     def indashboard
         @courses = Course.all
+        authorize Course
     end
 
     def inassign

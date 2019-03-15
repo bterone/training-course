@@ -39,7 +39,7 @@ class GroupsController < ApplicationController
     end
     
     def spawn
-        Group.create(groupname: "New Group", submission: "NONE", review: "NONE", grade: 100, course_id: params[:id])
+        Group.create(groupname: "New Group", submission: "NONE", review: "NONE", grade: 0, course_id: params[:id])
         indashboard_path
     end
     #helper_method :creategroup

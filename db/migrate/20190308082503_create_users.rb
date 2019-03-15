@@ -4,11 +4,10 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :fname
       t.string :lname
       t.string :citizenid, :null => false
-      t.string :email
       t.integer :usertype
 
       ## Database authenticatable
-      t.string :username,           null: false, default: ""
+      t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
@@ -20,7 +19,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
 
       t.index :citizenid, unique: true
     end
-    add_index :users, :username,             unique: true
+    add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
   end
 end

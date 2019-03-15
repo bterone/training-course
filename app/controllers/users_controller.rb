@@ -13,8 +13,6 @@ class UsersController < ApplicationController
     end
 
     def show
-        #Couldn't find User with 'citizenid'=
-        #@user = User.find(params[:user])
         @user = User.find(params[:id])
     end
 

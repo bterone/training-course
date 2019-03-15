@@ -44,17 +44,6 @@
     </div>
 
     <div class="mb-3">
-        <label for="username">Username</label>
-        <div class="input-group">
-        <!--<input type="text" class="form-control" id="username" placeholder="Username" required>-->
-        <%= f.text_field(:username, {:class => 'form-control', :placeholder => '', :value => '', :required => ''}) %>
-        <div class="invalid-feedback" style="width: 100%;">
-            Your username is required.
-        </div>
-        </div>
-    </div>
-
-    <div class="mb-3">
         <label for="password">Password</label>
         <div class="input-group">
         <%= f.text_field(:password, {:class => 'form-control', :placeholder => '', :value => '', :required => '', :type => 'password'}) %>

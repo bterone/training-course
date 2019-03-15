@@ -43,10 +43,10 @@
         </tr>
         </thead>
         <tbody>
-<% @course.groups.each do |group| %>
+<% @groupcount.each do |key, value| %>
         <tr>
-          <td><%= group.groupname %></td>
-          <td><%= @groupcount %></td>
+          <td><%= key %></td>
+          <td><%= value %></td>
         </tr>
 <% end %>
         </tbody>

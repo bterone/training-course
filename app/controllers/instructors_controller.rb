@@ -37,7 +37,7 @@ class InstructorsController < ApplicationController
         #LEFT OUTER JOIN "group_users" ON "group_users"."user_id" = "users"."id" 
         #LEFT OUTER JOIN "groups" ON "groups"."id" = "group_users"."group_id" WHERE "users"."usertype" = 1 GROUP BY groups.groupname 
         
-        @groupcount = @userselected.count('groups.groupname')
+        @groupcount = @userselected.group('groups.groupname').count('users.fname')
         authorize Course
     end
 end

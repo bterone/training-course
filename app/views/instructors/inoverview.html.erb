@@ -1,8 +1,7 @@
+<% @course.groups.each do |group| %>
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    <h5 class="card-title"><%= group.groupname %></h5>
   </div>
   <div class="card-body">
     <div class="row">
@@ -26,32 +25,24 @@
 </div>
 
 <hr class="featurette-divider">
+<% end %>
 
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-  </div>
-  <div class="card-body">
-    <div class="row">
-      <div class="col-md-9">
-        <button type="button" class="btn btn-secondary">No Submission</button>
-        <button type="button" class="btn btn-primary">Assign Members</button>
-        <button type="button" class="btn btn-info">Give Project</button>
-      </div>
-      <div class="col-md-3">
-        <div class="row">
-          <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Score / 100">
-          </div>
-          <div class="col-md-6">
-            <button type="button" class="btn btn-primary">Save</button>
-          </div>
-        </div><!-- End of row -->
-      </div>
-    </div><!-- End of row -->
-  </div>
+<h5>List of all students in groups</h5>
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+        <tr>
+            <th>Group Name</th>
+            <th>Number of Students</th>
+        </tr>
+        </thead>
+        <tbody>
+<% @course.groups.each do |group| %>
+        <tr>
+          <td><%= group.groupname %></td>
+          <td><%= @groupcount %></td>
+        </tr>
+<% end %>
+        </tbody>
+    </table>
 </div>
-
-<hr class="featurette-divider">

@@ -21,4 +21,16 @@ class InstructorsController < ApplicationController
         @userselected = @users.select('users.fname','users.lname','groups.groupname').
         left_outer_joins(:groups).all
     end
+
+    def inoverview
+        @course = Course.find(params[:id])
+
+        @users = User.all.
+        left_outer_joins(:courses).where(course_users: { course_id: params[:id]})
+
+        @userselected = @users.select('users.fname','users.lname','groups.groupname').
+        left_outer_joins(:groups).where(usertype: 1)
+
+        @groupcount = @userselected.count('groups.groupname')
+    end
 end

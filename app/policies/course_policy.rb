@@ -9,4 +9,12 @@ class CoursePolicy < ApplicationPolicy
     def indashboard?
         user.instructor?
     end
+
+    def inassign?
+        user.instructor?
+    end
+
+    def inoverview?
+        user.instructor?
+    end
 end

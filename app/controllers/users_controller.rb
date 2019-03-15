@@ -53,6 +53,7 @@ class UsersController < ApplicationController
 
     def edit
         @user = User.find(params[:id])
+        authorize User
         #@user = User.select('users.id','users.fname','users.lname',
         #'users.citizenid','users.email','students.studentid','groups.groupname').
         #joins(:student).

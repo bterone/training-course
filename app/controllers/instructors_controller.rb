@@ -21,6 +21,7 @@ class InstructorsController < ApplicationController
 
         @userselected = @users.select('users.fname','users.lname','groups.groupname').
         left_outer_joins(:groups).all
+        authorize Course
     end
 
     def inoverview
@@ -33,5 +34,6 @@ class InstructorsController < ApplicationController
         left_outer_joins(:groups).where(usertype: 1)
 
         @groupcount = @userselected.count('groups.groupname')
+        authorize Course
     end
 end

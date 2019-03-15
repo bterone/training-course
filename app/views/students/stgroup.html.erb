@@ -1,30 +1,30 @@
 <div class="row featurette">   
     <div class="col-md-9 p-4 d-flex flex-column position-static">
-        <h2 class="featurette-heading">Learn the ways of Python!</h2>
+        <h2 class="featurette-heading">Learn the ways of <%= @course.coursename %>!</h2>
         <p class="lead">This is where your assignment is going to be when ever the Instructor decides to give you an assignment!</p>
 
         <hr class="featurette-divider">
 
         <div class="row">
-            <div class="col-md-6">
+            <!--<div class="col-md-6">
                 <input type="text" class="form-control" placeholder="Group Name">
+            </div>-->
+            <div class="col-md-3">
+                <!--<button type="button" class="btn btn-primary">Save</button>-->
+                <%= link_to "Edit Group Name", edit_group_path(@group.first), :class => 'btn btn-primary' %>
             </div>
             <div class="col-md-3">
-                <button type="button" class="btn btn-primary">Save</button>
-            </div>
-            <div class="col-md-3">
-                <button type="button" class="btn btn-primary">Submit Assignment</button>
+                <!--<button type="button" class="btn btn-primary">Submit Assignment</button>-->
+                <%= link_to "Submit Assignment", submission_path(@group.first), :class => 'btn btn-primary' %>
             </div> 
         </div>
     </div>
     <div class="col-md-3 p-4 d-flex flex-column position-static">
-        <h2 class="featurette-heading">Group 1</h2>
+        <h2 class="featurette-heading"><%= @group.first.groupname %></h2>
         <ul class="list-group">
-            <li class="list-group-item">Paul</li>
-            <li class="list-group-item">Stacy</li>
-            <li class="list-group-item">Jack</li>
-            <li class="list-group-item">Felix</li>
-            <li class="list-group-item">Susan</li>
+            <% @wholegroup.each do |member| %>
+            <li class="list-group-item"><%= member.fname %></li>
+            <% end %>
         </ul>
     </div>
 </div>

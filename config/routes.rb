@@ -14,10 +14,11 @@ Rails.application.routes.draw do
   get 'inoverview/:id' => 'instructors#inoverview', :as => :inoverview
   get 'courses/:id' => 'instructors#inassign'
 
-  get 'stgroup' => 'students#stgroup', :as => :stgroup
+  get 'stgroup/:id' => 'students#stgroup', :as => :stgroup
   get 'stoverview/:id' => 'students#stoverview', :as => :stoverview
   get 'courses/follow/:id' => 'courses#follow', :as => :follow_course
 
+  get 'groups/submission/:id' => 'groups#submission', :as => :submission
   #get 'filter' => 'filter#show', :as => :filter
   post 'filter' => 'filter#show', :as => :filter
   devise_scope :user do
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
     match '/users/:id', to: 'users#show', via: 'get'
   end
   resources :users
+  resources :groups
 
   resources :courses do
     resources :groups do

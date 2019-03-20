@@ -22,11 +22,9 @@ class UsersController < ApplicationController
         case route_to params
         when :outsider
             @user.usertype = :outsider
-            #render plain: params[:user].inspect
             if(@user.save)
                 render 'confirmation'
             else
-                #render plain: params[:user].inspect
                 render 'new'
             end
 
@@ -52,10 +50,6 @@ class UsersController < ApplicationController
     def edit
         @user = User.find(params[:id])
         authorize User
-        #@user = User.select('users.id','users.fname','users.lname',
-        #'users.citizenid','users.email','students.studentid','groups.groupname').
-        #joins(:student).
-        #left_outer_joins(:groups).where(users: { id: params[:id] })
     end
 
     def update

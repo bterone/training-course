@@ -11,7 +11,8 @@
             <th>Group Name</th>
         </tr>
         <tr>
-         <%= form_for :user, url: filter_path, method: "post" do |f| %>
+        <!-- Shows Filter -->
+        <%= form_for :user, url: filter_path, method: "post" do |f| %>
             <th><%= f.text_field(:studentid, {:class => 'form-control', :placeholder => '', :value => '' }) %></th>
             <th><%= f.text_field(:fname, {:class => 'form-control', :placeholder => '', :value => '' }) %></th>
             <th><%= f.text_field(:lname, {:class => 'form-control', :placeholder => '', :value => '' }) %></th>
@@ -24,7 +25,6 @@
         </thead>
         <tbody>
     <% @users.each do |user| %>
-    <!-- FILTER SHOW -->
         <tr>
             <td><%= user.studentid %></td>
             <td><%= user.fname %></td>

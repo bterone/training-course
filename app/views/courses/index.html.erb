@@ -9,7 +9,6 @@
         <h2 class="featurette-heading">Learn the ways of <%= course.coursename %>!</h2>
         <p class="lead"><%= course.coursedesc %></p>
     <hr class="featurette-divider">
-    <!--<button class="btn btn-info" type="submit">Follow</button>-->
     <%= link_to "Follow the Class!", follow_course_path(course) , :class => 'btn btn-info' %>
     </div>
     <div class="col-md-5">

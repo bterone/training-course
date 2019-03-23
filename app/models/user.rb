@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :citizenid, uniqueness: true
   validates :password, confirmation: true
+
   has_one :student
   has_one :instructor
   

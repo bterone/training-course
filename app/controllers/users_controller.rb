@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
     def index
-        #@users = User.all
         @users = User.select('users.id','users.fname','users.lname',
         'users.citizenid','users.email','students.studentid','groups.groupname').
         joins(:student).
@@ -72,7 +71,7 @@ class UsersController < ApplicationController
     end
 
     private def user_params
-        params.require(:user).permit(:fname, :lname, :citizenid, :username, :password, :email)
+        params.require(:user).permit(:fname, :lname, :citizenid, :username, :password, :password_confirmation, :email)
     end
 
     private def student_params

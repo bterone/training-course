@@ -42,7 +42,6 @@ class GroupsController < ApplicationController
         Group.create(groupname: "New Group", submission: "NONE", review: "NONE", grade: 0, course_id: params[:id])
         indashboard_path
     end
-    #helper_method :creategroup
 
     private def group_params
         params.require(:group).permit(:groupname, :submission, :id, :review, :grade)

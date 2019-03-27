@@ -6,11 +6,11 @@ class FilterController < ApplicationController
         left_outer_joins(:groups)
 
         @users = @selectedusers.where('users.fname LIKE ? AND users.lname LIKE ? AND users.citizenid
-         LIKE ? AND users.email LIKE ? AND students.studentid LIKE ? AND groups.groupname LIKE ?',
-         :user.fname, params[.lname, :user.citizenid, :user.email, :user.studentid, :user.groupname)
+        LIKE ? AND users.email LIKE ? AND students.studentid LIKE ? AND groups.groupname LIKE ?',
+        "#{params[:fname]}%", "#{params[:lname]}%", "#{params[:citizenid]}%", "#{params[:email]}%", "#{params[:studentid]}%", "#{params[:groupname]}%")
     end
 
     def filtering_params(params)
-        params.require(:user).permit(:studentid, :fname, :lname, :citizenid, :email, :groupname)
+        params.require(:filter).permit(:studentid, :fname, :lname, :citizenid, :email, :groupname)
     end
 end

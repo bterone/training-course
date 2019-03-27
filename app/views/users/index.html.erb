@@ -11,7 +11,7 @@
             <th>Group Name</th>
         </tr>
         <tr>
-        <%= form_for :filter, url: filter_path, method: "post" do |f| %>
+        <%= form_for :filter, url: filter_path, method: "post" do %>
             <th><%= text_field_tag(:studentid, params[:studentid], {:class => 'form-control'}) %></th>
             <th><%= text_field_tag(:fname, params[:fname], {:class => 'form-control'}) %></th>
             <th><%= text_field_tag(:lname, params[:lname], {:class => 'form-control'}) %></th>

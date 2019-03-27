@@ -12,14 +12,14 @@
         </tr>
         <tr>
         <!-- Shows Filter -->
-        <%= form_for :user, url: filter_path, method: "post" do |f| %>
-            <th><%= f.text_field(:studentid, {:class => 'form-control', :placeholder => '', :value => '' }) %></th>
-            <th><%= f.text_field(:fname, {:class => 'form-control', :placeholder => '', :value => '' }) %></th>
-            <th><%= f.text_field(:lname, {:class => 'form-control', :placeholder => '', :value => '' }) %></th>
-            <th><%= f.text_field(:citizenid, {:class => 'form-control', :placeholder => '', :value => '' }) %></th>
-            <th><%= f.text_field(:email, {:class => 'form-control', :placeholder => '', :value => '' }) %></th>
-            <th><%= f.text_field(:groupname, {:class => 'form-control', :placeholder => '', :value => '' }) %></th>
-            <th><%= f.submit "Filter", :class => 'btn btn-primary' %>
+        <%= form_for :filter, url: filter_path, method: "post" do %>
+            <th><%= text_field_tag(:studentid, params[:studentid], {:class => 'form-control'}) %></th>
+            <th><%= text_field_tag(:fname, params[:fname], {:class => 'form-control'}) %></th>
+            <th><%= text_field_tag(:lname, params[:lname], {:class => 'form-control'}) %></th>
+            <th><%= text_field_tag(:citizenid, params[:citizenid], {:class => 'form-control'}) %></th>
+            <th><%= text_field_tag(:email, params[:email], {:class => 'form-control'}) %></th>
+            <th><%= text_field_tag(:groupname, params[:groupname], {:class => 'form-control'}) %></th>
+            <th><%= submit_tag("Filter", :class => 'btn btn-primary') %>
         <% end %>
         </tr>
         </thead>

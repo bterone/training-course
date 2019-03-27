@@ -24,9 +24,11 @@ Rails.application.routes.draw do
   get 'groups/grade/:id' => 'groups#grade', :as => :grade
   get 'groups/project/:id' => 'groups#project', :as => :project
   get 'groups/submitted/:id' => 'groups#submitted', :as => :submitted
-  #get 'filter' => 'filter#show', :as => :filter
+
+  get 'filter' => 'users#index', :as => :filter
   #post 'filter' => 'filter#show', :as => :filter
   match '/filter', to: 'filter#show', via: 'post'
+  
   devise_scope :user do
     match '/users', to: 'users#index', via: 'get'
     match '/users/:id', to: 'users#show', via: 'get'

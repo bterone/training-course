@@ -43,6 +43,10 @@ class GroupsController < ApplicationController
         indashboard_path
     end
 
+    def check
+        put params[:id]
+    end
+
     private def group_params
         params.require(:group).permit(:groupname, :submission, :id, :review, :grade)
     end

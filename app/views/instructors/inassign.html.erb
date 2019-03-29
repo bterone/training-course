@@ -17,10 +17,10 @@
         <div class="col-md-5">
             <div class="card-body">
             <ul class="list-group">
-                <div class="sortable">
+                <div class="sortable" id="G<%= group.id %>">
                     <% @userselected.each do |user| %>
                         <% if user.groupname == group.groupname %>
-                            <li class="list-group-item"><%= user.fname %> <%= user.lname %></li>
+                            <li class="list-group-item" id="U<%= user.id %>"><%= user.fname %> <%= user.lname %></li>
                         <% end %>
                     <% end %>
                 </div>
@@ -38,12 +38,13 @@
         <h4 class="featurette-heading">List of Unassigned Students</h4>
         <p class="featurette-heading">(Drag and drop)<p>
         <ul class="list-group">
-            <div class="sortable">
+            <div class="sortable" id="GNONE">
             <% @userselected.each do |user| %>
                 <% if user.groupname == nil %>
-                    <li class="list-group-item"><%= user.fname %> <%= user.lname %></li>
+                    <li class="list-group-item" id="U<%= user.id %>"><%= user.fname %> <%= user.lname %></li>
                 <% end %>
             <% end %>
+            <input type=hidden name='none' value='unassigned'>
             </div>
         </ul>
     </div>

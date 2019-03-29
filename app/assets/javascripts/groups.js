@@ -1,8 +1,12 @@
 document.addEventListener("turbolinks:load", function() {
     $(".sortable").sortable({
         connectWith: ".sortable",
-        update: function ( event, ui ) {
-            console.log('UPDATE')
+        start: function ( event, ui ) {
+            console.log('START')
+        },
+        receive: function ( event, ui ) {
+            console.log(ui.item.get(0).id + ' is the ID');
+            console.log($(this).attr('id') + ' is the Group ID');
         }
     });
 });

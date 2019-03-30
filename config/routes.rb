@@ -24,7 +24,8 @@ Rails.application.routes.draw do
   get 'groups/grade/:id' => 'groups#grade', :as => :grade
   get 'groups/project/:id' => 'groups#project', :as => :project
   get 'groups/submitted/:id' => 'groups#submitted', :as => :submitted
-  match '/groups/check', to: 'groups#check', via: 'post'
+
+  match '/users/check', to: 'users#check', via: 'post'
 
   get 'filter' => 'users#index', :as => :filter
   #post 'filter' => 'filter#show', :as => :filter

@@ -70,6 +70,13 @@ class UsersController < ApplicationController
         redirect_to users_path
     end
 
+    def check
+        uid = params[:test][:userid]
+        uid.slice!(0)
+        @user = User.find_by(id: uid)
+        puts @user
+    end
+
     private def user_params
         params.require(:user).permit(:fname, :lname, :citizenid, :username, :password, :password_confirmation, :email)
     end
@@ -80,6 +87,10 @@ class UsersController < ApplicationController
 
     private def instructor_params
         params.require(:user).permit(:instructorid, :departmentname)
+    end
+
+    private def test_params
+        params.require(:test).permit(:groupid, :userid)
     end
 
     private def route_to params

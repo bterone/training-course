@@ -3,6 +3,7 @@
   <head>
     <title>Online Training Courses</title>
     <%= csrf_meta_tags %>
+    <%= javascript_tag "let AUTH_TOKEN = '#{form_authenticity_token}';" if protect_against_forgery? %>
 
     <%= stylesheet_link_tag    'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>

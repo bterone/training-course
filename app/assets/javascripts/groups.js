@@ -7,6 +7,11 @@ document.addEventListener("turbolinks:load", function() {
         receive: function ( event, ui ) {
             console.log(ui.item.get(0).id + ' is the ID');
             console.log($(this).attr('id') + ' is the Group ID');
+            $.ajax({
+                type: "POST",
+                url: "/users/check",
+                data: { test: { groupid: $(this).attr('id'), userid: ui.item.get(0).id }, authenticity_token: AUTH_TOKEN}
+            })
         }
     });
 });

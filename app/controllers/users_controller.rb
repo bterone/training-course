@@ -78,20 +78,18 @@ class UsersController < ApplicationController
         cid = params[:test][:courseid]
 
         @user = User.find_by(id: uid)
-        #@group = Group.find_by(id: gid)
-        #@course = Course.find_by(id: cid)
 
-        #@user.groups.where(course_id: cid).clear
-        #@user.groups << Group.find_by(id: gid)
+        @group = @user.group_users.joins(:group).where(groups: { course_id: cid } )
+        
+        @group.update(group_id: gid)
 
-        @user.group_users.update(group_id: gid)
-        #@currentgroup = @user.groups.where(course_id: cid)
+        #Update the user's group where the course ID = THIS
 
-        #FIRST Delete old relationship (old groups where the course ID = THIS)
-        #NEXT Create new record where the USER is part of a new GROUP
-
-        #OR THIS Update the user's group where the course ID = THIS
-        puts @user
+        #UPDATE "group_users" SET "group_id" = 2
+        #WHERE "group_users"."group_id" = 
+        #(SELECT "group_id" FROM "group_users" 
+        #JOIN "groups" ON "groups"."id" = "group_users"."group_id" 
+        #WHERE "groups"."course_id" = 1) AND "group_users"."user_id" = 1
     end
 
     private def user_params

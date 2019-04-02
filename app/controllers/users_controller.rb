@@ -81,7 +81,11 @@ class UsersController < ApplicationController
 
         @group = @user.group_users.joins(:group).where(groups: { course_id: cid } )
         
-        @group.update(group_id: gid)
+        if @group.empty?
+            @user.groups << Group.find_by(id: gid)
+        else
+            @group.update(group_id: gid)
+        end
 
         #Update the user's group where the course ID = THIS
 

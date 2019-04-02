@@ -10,7 +10,10 @@ document.addEventListener("turbolinks:load", function() {
             $.ajax({
                 type: "POST",
                 url: "/users/check",
-                data: { test: { groupid: $(this).attr('id'), userid: ui.item.get(0).id }, authenticity_token: AUTH_TOKEN}
+                data: { test: { groupid: $(this).attr('id'), 
+                    userid: ui.item.get(0).id, 
+                    courseid:  $('input#CID').val()}, 
+                    authenticity_token: AUTH_TOKEN}
             })
         }
     });

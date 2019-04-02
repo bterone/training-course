@@ -73,7 +73,24 @@ class UsersController < ApplicationController
     def check
         uid = params[:test][:userid]
         uid.slice!(0)
+        gid = params[:test][:groupid]
+        gid.slice!(0)
+        cid = params[:test][:courseid]
+
         @user = User.find_by(id: uid)
+        #@group = Group.find_by(id: gid)
+        #@course = Course.find_by(id: cid)
+
+        #@user.groups.where(course_id: cid).clear
+        #@user.groups << Group.find_by(id: gid)
+
+        @user.group_users.update(group_id: gid)
+        #@currentgroup = @user.groups.where(course_id: cid)
+
+        #FIRST Delete old relationship (old groups where the course ID = THIS)
+        #NEXT Create new record where the USER is part of a new GROUP
+
+        #OR THIS Update the user's group where the course ID = THIS
         puts @user
     end
 
@@ -90,7 +107,7 @@ class UsersController < ApplicationController
     end
 
     private def test_params
-        params.require(:test).permit(:groupid, :userid)
+        params.require(:test).permit(:groupid, :userid, :courseid)
     end
 
     private def route_to params

@@ -6,6 +6,7 @@
 </style>
 <div class="row featurette">
     <div class="col-md-9 p-4 d-flex flex-column position-static">
+    <input type="hidden" value="<%= @course.id %>" id="CID">
     <% @course.groups.each do |group| %>
         <div class="card">
         <div class="row">

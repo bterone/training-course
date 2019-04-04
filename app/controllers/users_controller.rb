@@ -81,7 +81,9 @@ class UsersController < ApplicationController
 
         @group = @user.group_users.joins(:group).where(groups: { course_id: cid } )
         
-        if @group.empty?
+        if gid == 'NONE'
+            @group.first.destroy
+        elsif @group.empty?
             @user.groups << Group.find_by(id: gid)
         else
             @group.update(group_id: gid)
